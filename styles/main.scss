@@ -1,0 +1,692 @@
+
+// ------PARTIALS---------
+@import "setup";
+
+// ------VARIABLES--------
+$themeColor:#404045;
+$decoColor:#ea9044;
+$greyColor:#727272;
+$vlightGrey:#EFECE7;
+$borderLine: 1px solid $themeColor;
+
+@mixin bg($bg-url){
+	
+}
+
+    // text-transform: capitalize;
+
+// ---------GENERAL STYLES--------
+	html{
+		font-size: 62.5%;
+	}
+	body{
+		font-size: 1.2rem;
+		font-family: raleway, sans-serif;
+		font-weight: 400;
+		color:$themeColor;
+	}
+	li{
+		list-style: none;
+
+	}
+	ul{
+		margin:0;
+		padding:0;
+	}
+	a{
+		text-decoration: none;
+		color:$themeColor;
+		transition: all .5s;
+	}
+
+	a:hover{
+		color:$decoColor;
+	}
+
+	h1,h2,h3,h5{
+		font-family: 'Rufina', serif;
+	}
+
+	h1{
+		font-size: 3.8rem;
+		color:$decoColor;
+	}
+
+	h2{
+		font-size: 2.8rem;
+	}
+
+	h3{
+		font-size: 1.8rem;
+	}
+
+	h4{
+		font-size: 1.4rem;
+		font-weight: 500;
+	}
+
+	h5{
+		font-size: 1.2rem;
+		letter-spacing: .2px;
+	}
+
+	button{
+		border:2px solid $decoColor;
+		padding:15px 20px;
+		margin-top: 30px;
+		background:transparent;
+		transition: all .5s;
+	}
+
+	.small{
+		font-size: 1rem;
+	}
+
+	.wrapper{
+		width: 70%;
+		max-width: 1080px;
+		margin:0 auto;
+		padding: 60px 0;
+		text-align: center;
+	}
+	.border{
+		padding:3px;
+		border:3px solid $themeColor;
+	}
+	.inputBtn{
+		font-size: 1.8rem;
+		font-weight: 700;
+		letter-spacing: .2rem;
+		background:url('../assets/seal.png') no-repeat;
+		background-position: 10px 0;
+		background-size: contain; 
+		padding:30px;
+	}
+// ---------MAIN STYLES--------
+
+	header{
+		background:url('../images/hero.jpg');
+		background-size: cover;
+		height:80vh;
+		//style the nav toggle
+		nav{
+			// float:right;
+			position: fixed;
+			right:10px;
+			z-index: 1;
+			.nav__dropDownMenu{
+				position: relative;
+				text-shadow:1px 1px 5px $themeColor;
+			}
+			
+			input[type=checkbox]{
+		      display:none;
+		    }
+		 	input[type=checkbox]:checked ~ label .nav__menuBtn_bar{
+				background-color:transparent,
+			}
+			input[type=checkbox]:checked ~ label .nav__menuBtn_bar:before{
+				top: 0;
+				transform: rotate(45deg);
+			}
+			input[type=checkbox]:checked ~ label .nav__menuBtn_bar:after{
+				top: 0;
+				transform: rotate(-45deg);
+			}
+		 	ul{
+		 		text-align: right;
+				position: absolute;
+				top:50px;
+				right:-200px;
+				opacity:0;
+				transition:all .3s;
+				li{
+					right:-500px;
+					transition:all .7s;
+					position: relative;
+		 	    	&:nth-child(2){
+		 	    		transition-delay: 0.09s;
+		 	    	}
+		 	    	&:nth-child(3){
+		 	    		transition-delay: 0.18s;
+		 	    	}
+		 	    	&:nth-child(4){
+		 	    		transition-delay: 0.27s;
+		 	    	}
+		 	    	&:nth-child(5){
+		 	    		transition-delay: 0.36s;
+		 	    	}
+		 	    	&:nth-child(6){
+		 	    		transition-delay: 0.45s;
+		 	    	}
+		 	    	
+				}
+		 	}
+		 	input[type=checkbox]:checked ~ ul{
+		 	    right:10px;
+		 	    opacity:1;
+		 	    li{
+		 	    	right:0px;
+		 	    }
+			}
+		 	a{
+		 		color:$vlightGrey;
+		 	}
+
+		 }
+		 .nav__menuBtn{
+		 	margin-top: 20px;
+			 padding: 10px;
+			 display: block;
+		 	
+		 }
+		//end of nav toggle
+
+		//style the hamburger button
+		.nav__menuBtn{
+			width: 50px;
+			height: 50px;
+			cursor: pointer;
+			.nav__menuBtn_bar{
+				width: 22px;
+				height: 3px;
+				background: $themeColor;
+				position: relative;
+				margin: 0 auto;
+				transition: all 0.35s;
+				&:before,
+				&:after{
+					width: 22px;
+					height: 3px;
+					background: $themeColor;
+					content: '';
+					position: absolute;
+					transition: all 0.35s;
+				}
+				&:before{
+					top: -7px;
+				}
+				&:after{
+					top: 7px;
+				}
+			}
+
+		}
+			
+		//end of hamburger button styling
+		img{
+			display: block;
+			margin:0 auto;
+		}
+		span{
+			padding: 0 10px;
+			color:white;
+			font-weight: 500;
+		}
+		.header__totop{
+			// background:$themeColor;
+			position: fixed;
+			bottom:30px;
+			right:10px;
+			h2{
+				margin:0;
+				color:white;
+				a{
+					padding:20px 20px;
+
+				}
+				// a{
+				// 	color:white;	
+				// }
+			}
+		}
+	}
+	
+	section.banner{
+		.wrapper{
+			position: relative;
+			.banner__stamp{
+				position: absolute;
+				top:-100px;
+				left:calc(50% - 100px);
+				width:200px;
+				margin:0 auto;
+				img{
+					width: 100%;
+				}
+				.banner__stamp_words{
+					color:white;
+					position: relative;
+					top:-170px;
+				}
+			}
+		}
+		.banner__catagory{
+			display:flex;
+			justify-content:center;
+			padding: 80px 0 0;
+			.banner__catagory_item{
+				padding:0 50px;
+				img{
+					width: 100%;
+				}
+				p{
+					color:$greyColor;
+				}
+			}
+		}
+	}
+
+	section.menu{
+		background:url('../assets/menubg.png');
+		background-size: cover;
+		padding: 40px 0;
+		.menu__title{
+			position: relative;
+			img{
+				width:270px;
+			}
+			h1{
+				color:white;
+				position: absolute;
+				left:calc(50% - 50px);
+				top:15px;
+			}
+		}
+		.menu__page{
+			display:flex;
+			padding-top: 30px;
+			.menu__page_border{
+				@extend .border;
+				margin:10px;
+				width: 50%;
+				display: flex;
+			}
+			.menu__page_1, .menu__page_2{
+				border: $borderLine; 
+				padding:20px 20px;
+				width:100%;
+				text-align: left;
+				h2{
+					color:$decoColor;
+					border-bottom: 1px solid $decoColor;
+					display: inline-block;
+					margin-top: 10px 0;
+				}
+				
+				.menu__page_item{
+					display:flex;
+					justify-content:space-between;
+					z-index:99;
+					h4{
+						color:white;
+						margin-bottom: 10px;
+					}
+
+					p{
+						color:$greyColor;
+					}
+				}
+			}
+			//end of menu border styling
+		}
+		//end of menu style
+	}
+
+	section.about{
+		background:url('../assets/aboutbg.png');
+		background-size: cover;
+		.about__text{
+			width:45%;
+			text-align: left;
+			margin-left: 0;
+			line-height: 2.5rem;
+			
+			.about__text_article{
+				padding: 40px 0 100px;
+			}
+		}
+
+	}
+
+	section.gallery{
+		background:url('../assets/gallerybg.jpg');
+		background-size: cover;
+		h1{
+			text-align: left;
+		}
+		.gallery__body{
+			display: flex;
+			align-items: flex-start;
+			#Container .mix{
+				display: none;
+			}
+		}
+		.gallery__selector_border{
+			@extend .border;
+			width: 20%;
+			margin-right: 20px;
+			background:#fff;
+			.gallery__selector{
+				border: $borderLine;
+				text-align: right;
+				padding: 20px;
+				h5{
+					cursor:pointer;
+					transition:all .5s;
+					&:hover{
+						color:$decoColor;
+					}
+				}
+			}			
+		}
+		.gallery__body_gallery{
+			width: 80%;
+			display: flex;
+			flex-wrap:wrap;
+			li{
+				margin:0;
+				padding:0;
+			}
+			.gallery__item{
+				width: 33.33%;
+			
+				img{
+					width: 100%;
+					display: block;
+				}
+			}
+		}
+	}
+
+	section.journal{
+		background:url('../assets/journalbg.png');
+		background-size: cover;
+
+		h1{
+			text-align: left;
+		}
+		button{
+			color:$decoColor;
+			&:hover{
+				color:white;
+				background:$decoColor;
+			}
+
+		}
+		//style the journal lists
+		ul{
+			display: flex;
+			flex-wrap:wrap;
+
+			li{
+				width:33.33%;
+				position: relative;
+				text-align: right;
+				img{
+					display: block;
+					width: 100%;
+				}
+				.journal__list_overlay{
+					position: absolute;
+					background:rgba(255,255,255,0.8);
+					top: 0;
+					left: 0;
+					bottom: 0;
+					right: 0;
+					opacity: 0;  //hide the overlay layer
+					transition: .5s;
+					.journal__list_item_text{
+						position: absolute;
+						bottom:20px;
+						right: 20px;
+						h3{
+							margin-top: 0;
+						}
+						.small{
+							display: inline-block;
+							background:$decoColor;
+							color:white;
+							padding: 3px;
+						}
+					}
+				}
+
+				//hover and show the overlay layer
+				.journal__list_overlay:hover{
+					opacity: 1;
+				}
+			}
+
+			//target the 5th item and take away the  hover effect
+			.journal__list_item5{
+				.journal__list_overlay{
+					background:#fff;
+					opacity: 1;					
+				}
+				.journal__list_item_text{
+					text-align: left;
+					top:15px;
+					left: 15px;
+					h3{
+						margin-bottom: 0px;;
+					}
+				}
+			}
+			//end of the item5
+		}
+		//end of journal list styling 
+	}
+
+	section.reserv{
+		background:url('../assets/reservationbg.png');
+		background-size: cover;
+		padding-bottom: 60px;
+
+		h1{
+			text-align: left;
+		}
+		.reserv__body{
+			display: flex;
+			align-items:flex-start;
+			.reserv__Text{
+				text-align: left;
+				margin-right: 20px;
+				width:calc(33.33% - 20px);
+				line-height: 2.5rem;
+				.reserv__phone_border{
+					@extend .border;
+					margin-top: 90px;
+					.reserv__phone{
+						border:$borderLine;
+						padding:20px;
+						display: flex;
+						align-items:center;
+						i{
+							font-size: 3rem;
+							color:$decoColor;
+							padding: 5px;
+							padding-right: 20px;
+						}
+						h4{
+							margin: 0;
+						}
+					}					
+				}
+				//end of phone card
+			}
+			//end of reserv-text
+			.reserv__post_border{
+				@extend .border;
+				width: 66.66%;
+				background:#fff;
+				position: relative;
+				img{
+					position: absolute;
+					width: 30px;
+					top:14px;
+					z-index: 1;
+				}
+				#calender{
+					left:calc(50% - 70px);
+				}
+				#clock{
+					left: calc(100% - 70px);
+				}
+				form{
+					display: flex;
+					flex-wrap:wrap;
+					input,textarea{
+						border:$borderLine;
+						padding: 20px;
+						position: relative;
+					}
+					input:nth-child(n-6){
+						width:50%;
+					}
+					textarea{
+						width:100%;
+						height:200px;
+						resize:none;
+					}
+					input[type="submit"]{
+						@extend .inputBtn;
+						width: 100%;
+					}
+					input[type=date]::-webkit-inner-spin-button {
+					    display: none;
+					}
+					input[type=date]::-webkit-calendar-picker-indicator {
+					    position: absolute;
+					    right:0px;
+					    top:40%;
+					}
+					input[type=time]::-webkit-inner-spin-button {
+					    display: none;
+					}	
+				}
+				//end of form
+			}
+			//end of reserv-post
+		}
+		// end of reserv-body
+	}
+
+
+	section.contact{
+		background:url('../assets/contactbg.png');
+		background-size: cover;
+		padding-bottom: 60px;
+
+		h1{
+			text-align: left;
+		}
+		.contact__body{
+			display: flex;
+			align-items:flex-start;
+			.contact__body_us{
+				text-align: left;
+				margin-right: 20px;
+				width:calc(50% - 20px);
+				line-height: 2.5rem;
+				i{
+					color:$decoColor;
+					padding-right: 10px;
+				}		
+			}
+			.contact__body_us_googleMap{
+				width: 100%;
+				height:280px;
+			}
+			.contact__body_us_icons{
+				font-size: 1.6rem;
+				margin-right:0;
+				padding-bottom: 30px;
+				i{
+					margin: 0;
+					padding:5px;
+				}
+			}
+		}
+		.contact__form_border{
+			@extend .border;
+			width: 50%;
+			background:#fff;
+			form{
+				display: flex;
+				flex-wrap:wrap;
+				input,textarea{
+					border:$borderLine;
+					padding: 20px;
+					width:100%;
+				}
+				textarea{
+					height:200px;
+					resize:none;
+				}
+				input[type="submit"]{
+					@extend .inputBtn;
+					width: 100%;						
+				}	
+			}
+			//end of form
+		}
+		//end of contact-form
+	}
+	// end of contact-body
+	
+	footer{
+		background:url('../assets/footerbg.png');
+		background-size: cover;
+		color:white;
+		.wrapper{
+			text-align: left;
+			display: flex;
+			.column{
+				padding: 30px;
+			}
+			.footer__column1{
+				flex: 3 2 300px;
+			}
+			.footer__column2{
+				flex: 1 3 200px;
+			}
+			.footer__column3{
+				flex: 3 1 300px;
+			}
+			.footer__socialMedia{
+				a{
+					color:white;
+					font-size: 1.6rem;
+					padding:5px;
+					&:hover{
+						color:$decoColor;
+						border-bottom:none;
+					}
+				}
+				p{
+					padding-top: 30px;
+				}
+			}
+			.footer__journals{
+				p{
+					padding-top: 30px;
+				}
+			}
+		}
+		a{
+			color:$decoColor;
+			border-bottom: 1px solid rgba(234,144,68,0);
+			&:hover{
+				border-bottom: 1px solid rgba(234,144,68,1);
+				
+			}
+
+		}
+
+	}
+
+
+@import "media";
+
+
